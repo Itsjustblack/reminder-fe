@@ -10,6 +10,7 @@ import { createRoot } from "react-dom/client";
 import { toast } from "sonner";
 import App from "./App.tsx";
 import "./index.css";
+import { AxiosError } from "axios";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const handleErrors = async (response: any) => {
@@ -45,7 +46,7 @@ const queryClient = new QueryClient({
 	},
 	mutationCache: new MutationCache({
 		onError: (error) => {
-			handleErrors(error.response);
+			handleErrors((error as AxiosError).response);
 		},
 	}),
 });

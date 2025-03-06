@@ -113,7 +113,7 @@ export default function ReminderForm() {
 						)}
 					/>
 
-					<div className="flex justify-between gap-4">
+					<div className="flex justify-between gap-4 flex-col sm:flex-row">
 						<FormField
 							control={form.control}
 							name="date"
@@ -155,67 +155,68 @@ export default function ReminderForm() {
 								</FormItem>
 							)}
 						/>
-						<FormField
-							control={form.control}
-							name="hours"
-							render={({ field }) => (
-								<FormItem>
-									<FormLabel>Hours</FormLabel>
-									<Select
-										onValueChange={field.onChange}
-										defaultValue={field.value}
-									>
-										<FormControl>
-											<SelectTrigger>
-												<SelectValue placeholder="Hours" />
-											</SelectTrigger>
-										</FormControl>
-										<SelectContent>
-											{hoursOptions.map((option) => (
-												<SelectItem
-													key={option.value}
-													value={option.value}
-												>
-													{option.label}
-												</SelectItem>
-											))}
-										</SelectContent>
-									</Select>
-									<FormMessage />
-								</FormItem>
-							)}
-						/>
-
-						<FormField
-							control={form.control}
-							name="minutes"
-							render={({ field }) => (
-								<FormItem>
-									<FormLabel>Minutes</FormLabel>
-									<Select
-										onValueChange={field.onChange}
-										defaultValue={field.value}
-									>
-										<FormControl>
-											<SelectTrigger>
-												<SelectValue placeholder="Minutes" />
-											</SelectTrigger>
-										</FormControl>
-										<SelectContent>
-											{minutesOptions.map((option) => (
-												<SelectItem
-													key={option.value}
-													value={option.value}
-												>
-													{option.label}
-												</SelectItem>
-											))}
-										</SelectContent>
-									</Select>
-									<FormMessage />
-								</FormItem>
-							)}
-						/>
+						<div className="flex gap-x-10 sm:gap-4">
+							<FormField
+								control={form.control}
+								name="hours"
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel>Hours</FormLabel>
+										<Select
+											onValueChange={field.onChange}
+											defaultValue={field.value}
+										>
+											<FormControl>
+												<SelectTrigger className="w-[126px] sm:w-auto">
+													<SelectValue placeholder="Hours" />
+												</SelectTrigger>
+											</FormControl>
+											<SelectContent>
+												{hoursOptions.map((option) => (
+													<SelectItem
+														key={option.value}
+														value={option.value}
+													>
+														{option.label}
+													</SelectItem>
+												))}
+											</SelectContent>
+										</Select>
+										<FormMessage />
+									</FormItem>
+								)}
+							/>
+							<FormField
+								control={form.control}
+								name="minutes"
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel>Minutes</FormLabel>
+										<Select
+											onValueChange={field.onChange}
+											defaultValue={field.value}
+										>
+											<FormControl>
+												<SelectTrigger className="w-[126px] sm:w-auto">
+													<SelectValue placeholder="Minutes" />
+												</SelectTrigger>
+											</FormControl>
+											<SelectContent>
+												{minutesOptions.map((option) => (
+													<SelectItem
+														key={option.value}
+														value={option.value}
+													>
+														{option.label}
+													</SelectItem>
+												))}
+											</SelectContent>
+										</Select>
+										<FormMessage />
+									</FormItem>
+								)}
+							/>
+						</div>
 					</div>
 
 					<Button
